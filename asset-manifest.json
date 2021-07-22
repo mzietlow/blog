@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/github-blog/static/js/main.c39a0007.chunk.js",
-    "main.js.map": "/github-blog/static/js/main.c39a0007.chunk.js.map",
-    "runtime-main.js": "/github-blog/static/js/runtime-main.60d0594d.js",
-    "runtime-main.js.map": "/github-blog/static/js/runtime-main.60d0594d.js.map",
-    "index.html": "/github-blog/index.html"
+    "main.js": "/blog/static/js/main.20c8d015.chunk.js",
+    "main.js.map": "/blog/static/js/main.20c8d015.chunk.js.map",
+    "runtime-main.js": "/blog/static/js/runtime-main.21692ae9.js",
+    "runtime-main.js.map": "/blog/static/js/runtime-main.21692ae9.js.map",
+    "index.html": "/blog/index.html"
   },
   "entrypoints": [
-    "static/js/runtime-main.60d0594d.js",
-    "static/js/main.c39a0007.chunk.js"
+    "static/js/runtime-main.21692ae9.js",
+    "static/js/main.20c8d015.chunk.js"
   ]
 }
