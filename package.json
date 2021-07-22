@@ -1,6 +1,6 @@
 {
-  "homepage": "https://mzietlow.github.io/github-blog",
-  "name": "github-blog",
+  "homepage": "https://mzietlow.github.io/blog",
+  "name": "blog",
   "version": "1.0.0",
   "description": "To run this in vscode: 1. in the lower left corner click the green symbol. 2. select open folder in container 3. choose the current folder 4. add a new terminal and run live-server public",
   "main": "index.js",
@@ -19,12 +19,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mzietlow/github-blog.git"
+    "url": "git+https://github.com/mzietlow/blog.git"
   },
   "author": "mzietlow",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mzietlow/github-blog/issues"
+    "url": "https://github.com/mzietlow/blog/issues"
   },
   "browserslist": {
     "production": [
