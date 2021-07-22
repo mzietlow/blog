@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.js"],"names":["console","log"],"mappings":"+FAAAA,QAAQC,IAAI,wB","file":"static/js/main.7d58d896.chunk.js","sourcesContent":["console.log(\"App.js is running!\")\n\n// JSX - JavaScript XML"],"sourceRoot":""}
