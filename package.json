@@ -5,6 +5,8 @@
   "description": "To run this in vscode: 1. in the lower left corner click the green symbol. 2. select open folder in container 3. choose the current folder 4. add a new terminal and run live-server public",
   "main": "index.js",
   "dependencies": {
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1",
     "gh-pages": "^3.2.3",
     "react-scripts": "^4.0.3"
   },

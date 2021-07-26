@@ -16,6 +16,7 @@
         "visualstudioexptteam.vscodeintellicode", // AI-assisted development
         "eg2.vscode-npm-script", // NPM support for VS code
         "christian-kohler.npm-intellisense", // Autocompletes npm modules in import statements
+        "christian-kohler.path-intellisense",
         "cssho.vscode-svgviewer", // SVG viewer
         "eamodio.gitlens", // IDE Git information
         "ms-azuretools.vscode-docker", // Docker integration and linting
@@ -27,6 +28,7 @@
         "stkb.rewrap", // rewrap comments after n characters on one line
         "vscode-icons-team.vscode-icons", // Better file extension icons
         "github.vscode-pull-request-github", // Github interaction
+        "dzannotti.vscode-babel-coloring", // Babel ES6/ES7 gighlighting
         // "JakeWilson.vscode-cdnjs", // Search and embed libraries from cdnjs.com
         // "alefragnani.Bookmarks",
         // "quicktype.quicktype", // Paste JSON as code
