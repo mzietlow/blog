@@ -27,7 +27,7 @@
   },
   "scripts": {
     "dev-server": "webpack-dev-server",
-    "build-local": "webpack",
+    "dev-build": "webpack",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
