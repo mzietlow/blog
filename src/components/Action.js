@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Action = (props) => {
   return (
@@ -9,5 +10,11 @@ const Action = (props) => {
     </div>
   );
 };
+
+Action.propTypes = {
+  handlePick: PropTypes.func.isRequired,
+  hasOptions: PropTypes.func.isRequired,
+};
+
 
 export default Action;

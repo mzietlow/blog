@@ -1,13 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class AddOption extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleAddOption = this.handleAddOption.bind(this);
-    this.state = {
-      error: undefined,
-    };
-  }
+  state = {error: undefined,};
+  handleAddOption = this.handleAddOption.bind(this);
+
   handleAddOption(e) {
     e.preventDefault();
 
@@ -32,3 +29,7 @@ export default class AddOption extends React.Component {
     );
   }
 }
+
+AddOption.propTypes = {
+  handleAddOption: PropTypes.func.isRequired,
+};
