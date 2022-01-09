@@ -15,7 +15,7 @@ module.exports = {
       exclude: /\/workspace\/node_modules/
     }]
   },
-  devtool: 'cheap-module-eval-source-map', // not production safe, shows correct source files when observing the page in the browser
+  devtool: 'eval-cheap-module-source-map', // not production safe, shows correct source files when observing the page in the browser
   devServer: {
     contentBase: path.join(__dirname, 'public'),
   }

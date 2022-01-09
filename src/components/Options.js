@@ -1,5 +1,5 @@
 import React from 'react'
-import Option from './Option'
+import Option from './Option.js'
 import PropTypes from 'prop-types'
 
 const Options = (props) => {
@@ -19,7 +19,7 @@ const Options = (props) => {
 };
 
 Options.propTypes = {
-  options: PropTypes.object.isRequired,
+  options: PropTypes.array.isRequired,
   handleDeleteOptions: PropTypes.func.isRequired,
   handleDeleteOptionSingular: PropTypes.func.isRequired
 }

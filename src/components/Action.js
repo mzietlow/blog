@@ -13,7 +13,7 @@ const Action = (props) => {
 
 Action.propTypes = {
   handlePick: PropTypes.func.isRequired,
-  hasOptions: PropTypes.func.isRequired,
+  hasOptions: PropTypes.bool.isRequired,
 };
 
 
