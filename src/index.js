@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import "./styles/styles.scss";
 import "normalize.css/normalize.css";
 
@@ -12,23 +12,24 @@ const AddExpensePage = () => (
   <div>This is from my AddExpensePage component</div>
 );
 
-const HelpPage = () => (
-  <div>This is from my HelpPage component</div>
-);
+const HelpPage = () => <div>This is from my HelpPage component</div>;
 
 const EditExpensePage = () => (
   <div>This is from my EditExpensePage component</div>
 );
 
+const NotFoundPage = () => <div>404!</div>;
+
 const routes = (
-  <BrowserRouter>
+  <HashRouter>
     <Routes>
-      <Route path="/blog" element={<ExpenseDashboardPage/>} />
-      <Route path="/blog/create" element={<AddExpensePage/>} />
-      <Route path="/blog/edit" element={<EditExpensePage/>} />
-      <Route path="/blog/help" element={<HelpPage/>} />
+    <Route path='*' element={<NotFoundPage />} />
+    <Route path="/" element={<ExpenseDashboardPage />} />
+      <Route path="/create" element={<AddExpensePage />} />
+      <Route path="/edit" element={<EditExpensePage />} />
+      <Route path="/help" element={<HelpPage />} />
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 ReactDOM.render(routes, document.getElementById("app"));
