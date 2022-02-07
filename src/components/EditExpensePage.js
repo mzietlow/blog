@@ -10,7 +10,7 @@ const EditExpensePage = () => {
 };
 
 EditExpensePage.propTypes = {
-  match: PropTypes.object.isRequired
+  match: PropTypes.object
 }
 
 export default EditExpensePage;
