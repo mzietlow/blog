@@ -22,7 +22,7 @@ export const removeExpense = ({ id } = {}) => ({
   id,
 });
 
-export const editExpense = ({ id, expenseUpdate } = {}) => ({
+export const editExpense = (id, expenseUpdate = {}) => ({
   type: "EDIT_EXPENSE",
   id,
   expenseUpdate,
