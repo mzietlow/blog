@@ -1,10 +1,7 @@
 import React from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { removeExpense } from "../actions/expenses";
 import { Link } from "react-router-dom";
 const ExpenseListItem = ({
-  dispatch,
   id,
   description,
   note,
@@ -17,9 +14,6 @@ const ExpenseListItem = ({
       <p>note: {note}</p>
       <p>amount: {amount}</p>
       <p>createdAt: {createdAt}</p>
-      <button key={id} onClick={() => dispatch(removeExpense({ id }))}>
-        Remove
-      </button>
     </div>
   );
 };
@@ -34,4 +28,4 @@ ExpenseListItem.propTypes = {
   id: PropTypes.string,
 };
 
-export default connect()(ExpenseListItem);
+export default ExpenseListItem;
