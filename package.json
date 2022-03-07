@@ -12,6 +12,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^6.5.1",
     "gh-pages": "^3.2.3",
+    "jest": "^27.5.1",
     "moment": "^2.29.1",
     "node-sass": "^7.0.1",
     "normalize.css": "^8.0.1",
@@ -43,7 +44,8 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
+    "test-watch": "jest --watch",
     "eject": "react-scripts eject"
   },
   "repository": {
