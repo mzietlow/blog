@@ -10,9 +10,9 @@ export const sortByDate = () => ({
 });
 export const setStartDate = (startDate) => ({
   type: "SET_START_DATE",
-  date: startDate,
+  startDate: startDate,
 });
 export const setEndDate = (endDate) => ({
   type: "SET_END_DATE",
-  date: endDate,
+  endDate: endDate,
 });
