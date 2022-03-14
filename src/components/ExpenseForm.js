@@ -1,7 +1,6 @@
 import React from "react";
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
-import "react-dates/lib/css/_datepicker.css";
 import PropTypes from "prop-types";
 
 const now = moment();
@@ -104,6 +103,6 @@ export default class ExpenseForm extends React.Component {
 }
 
 ExpenseForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
   expense: PropTypes.object,
 };
