@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render header correctly 1`] = `
+<header>
+  <h1>
+    Malte malte Malte 🖌️
+  </h1>
+  <[object Object]
+    className={[Function]}
+    to="/"
+  >
+    Home
+  </[object Object]>
+  <[object Object]
+    className={[Function]}
+    to="/create"
+  >
+    Create Expense
+  </[object Object]>
+  <[object Object]
+    className={[Function]}
+    to="/edit"
+  >
+    Edit Expense
+  </[object Object]>
+  <[object Object]
+    className={[Function]}
+    to="/help"
+  >
+    Help
+  </[object Object]>
+</header>
+`;
