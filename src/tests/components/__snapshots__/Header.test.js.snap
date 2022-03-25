@@ -5,29 +5,29 @@ exports[`should render header correctly 1`] = `
   <h1>
     Malte malte Malte 🖌️
   </h1>
-  <[object Object]
+  <NavLink
     className={[Function]}
     to="/"
   >
     Home
-  </[object Object]>
-  <[object Object]
+  </NavLink>
+  <NavLink
     className={[Function]}
     to="/create"
   >
     Create Expense
-  </[object Object]>
-  <[object Object]
+  </NavLink>
+  <NavLink
     className={[Function]}
     to="/edit"
   >
     Edit Expense
-  </[object Object]>
-  <[object Object]
+  </NavLink>
+  <NavLink
     className={[Function]}
     to="/help"
   >
     Help
-  </[object Object]>
+  </NavLink>
 </header>
 `;
