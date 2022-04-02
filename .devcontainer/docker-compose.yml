@@ -2,25 +2,29 @@ version: "3.7"
 
 services:
   vscode:
+    image: asdyxlkcjlkv/asdhouxciv
     build: .
-    image: qmcgaw/basedevcontainer:v0.3.0-debian
     volumes:
       # Docker volume to contain node_modules for performance reason
       - node_modules:/workspace/node_modules
       - ../:/workspace
+      # Docker
+      - ~/.docker:/home/devel/.docker:z
       # Docker socket to access Docker server
       - /var/run/docker.sock:/var/run/docker.sock
-      # SSH directory
-      - ~/.ssh:/home/vscode/.ssh
-      - ~/.ssh:/root/.ssh
+      # SSH directory for Linux, OSX and WSL
+      - ~/.ssh:/home/devel/.ssh:z
+      # For Windows without WSL, a copy will be made
+      # from /tmp/.ssh to ~/.ssh to fix permissions
+      # - ~/.ssh:/tmp/.ssh:ro
+      # Shell history persistence
+      - ~/.zsh_history:/home/devel/.zsh_history:z
       # Git config
-      - ~/.gitconfig:/home/districter/.gitconfig
-      - ~/.gitconfig:/root/.gitconfig
+      - ~/.gitconfig:/home/devel/.gitconfig:z
       # Kubernetes
-      # - ~/.kube:/home/districter/.kube
-      # - ~/.kube:/root/.kube
+      # - ~/.kube:/home/devel/.kube:z
     environment:
-      - TZ=
+      - TZ=/usr/local/etc/localtime
     entrypoint: zsh -c "while sleep 1000; do :; done"
     ports:
       - 3000/tcp
