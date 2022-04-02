@@ -12,6 +12,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^6.5.1",
     "express": "^4.17.3",
+    "firebase": "^9.6.10",
     "moment": "^2.29.1",
     "node-sass": "^7.0.1",
     "normalize.css": "^8.0.1",
