@@ -1,19 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-const ExpenseListItem = ({
-  id,
-  description,
-  note,
-  amount,
-  createdAt,
-}) => {
+import moment from "moment";
+import numeral from "numeral";
+const ExpenseListItem = ({ id, description, amount, createdAt }) => {
   return (
     <div>
-    <Link to={`/edit/${id}`}><h2>{description}</h2></Link>
-      <p>note: {note}</p>
-      <p>amount: {amount}</p>
-      <p>createdAt: {createdAt}</p>
+      <Link to={`/edit/${id}`}>
+        <h2>{description}</h2>
+      </Link>
+      <p>
+        {numeral(amount / 100).format("$0,0.00")} -{" "}
+        {moment(createdAt).format("MMMM Do, YYYY")}
+      </p>
     </div>
   );
 };
