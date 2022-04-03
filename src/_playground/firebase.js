@@ -6,6 +6,8 @@ import {
   update,
   remove,
   onValue,
+  get,
+  push,
 } from "firebase/database";
 
 // Your web app's Firebase configuration
@@ -110,3 +112,45 @@ setTimeout(
       .catch((e) => console.log("Update failed", e)),
   4500
 );
+
+push(ref(db, "expenses"), {
+  description: "Groceries",
+  note: "Saturday Groceries",
+  amount: 8860,
+  createdAt: 0,
+});
+
+push(ref(db, "expenses"), {
+  description: "Breakfast",
+  note: "Breakfast from Junge",
+  amount: 796,
+  createdAt: 1,
+});
+
+push(ref(db, "expenses"), {
+  description: "Shopping",
+  note: "Shopping at AEZ",
+  amount: 15600,
+  createdAt: 2,
+});
+
+const snapshotToArray = (snapshot) => {
+  const expenses = [];
+  snapshot.forEach((childSnapshot) => {
+    expenses.push({
+      id: childSnapshot.key,
+      ...childSnapshot.val(),
+    });
+  });
+  return expenses;
+};
+
+get(ref(db, "expenses")).then((snapshot) => {
+  const expenses = snapshotToArray(snapshot);
+  console.log(expenses);
+});
+
+onValue(ref(db, "expenses"), (snapshot) => {
+  const expenses = snapshotToArray(snapshot);
+  console.log(expenses);
+});

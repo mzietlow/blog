@@ -1,21 +1,21 @@
-import { v4 as uuid } from "uuid";
-
+import database, { firebaseHooks as fbHooks } from "../firebase/firebase";
 // Expenses Reducer Methods
-export const addExpense = ({
-  description = "",
-  note = "",
-  amount = 0,
-  createdAt = 0,
-} = {}) => ({
-  type: "ADD_EXPENSE",
-  expense: {
-    id: uuid(),
-    description,
-    note,
-    amount,
-    createdAt,
-  },
-});
+export const addExpense = (expense) => ({ type: "ADD_EXPENSE", expense });
+
+export const startAddExpense = (expenseData = {}) => {
+  return (dispatch) => {
+    const {
+      description = "",
+      note = "",
+      amount = 0,
+      createdAt = 0,
+    } = expenseData;
+    const expense = { description, note, amount, createdAt };
+    fbHooks
+      .push(fbHooks.ref(database, "expenses"), expense)
+      .then((ref) => dispatch(addExpense({ id: ref.key, ...expense })));
+  };
+};
 
 export const removeExpense = ({ id } = {}) => ({
   type: "REMOVE_EXPENSE",
