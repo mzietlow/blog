@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, push, get, onValue } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -15,10 +15,45 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-set(ref(db), {
-  name: "mzietlow",
-  age: 25,
-  isSingle: false,
+
+push(ref(db, "expenses"), {
+  description: "Groceries",
+  note: "Saturday Groceries",
+  amount: 8860,
+  createdAt: 0,
 });
 
-set(ref(db, "age"), 27)
+push(ref(db, "expenses"), {
+  description: "Breakfast",
+  note: "Breakfast from Junge",
+  amount: 796,
+  createdAt: 1,
+});
+
+push(ref(db, "expenses"), {
+  description: "Shopping",
+  note: "Shopping at AEZ",
+  amount: 15600,
+  createdAt: 2,
+});
+
+const snapshotToArray = (snapshot) => {
+  const expenses = [];
+  snapshot.forEach((childSnapshot) => {
+    expenses.push({
+      id: childSnapshot.key,
+      ...childSnapshot.val(),
+    });
+  });
+  return expenses;
+};
+
+get(ref(db, "expenses")).then((snapshot) => {
+  const expenses = snapshotToArray(snapshot);
+  console.log(expenses);
+});
+
+onValue(ref(db, "expenses"), (snapshot) => {
+  const expenses = snapshotToArray(snapshot);
+  console.log(expenses);
+});
