@@ -3,13 +3,13 @@ import { shallow } from "enzyme";
 import { AddExpensePage } from "../../components/AddExpensePage";
 import expenses from "../../selectors/expenses";
 
-let addExpense, navigate, wrapper;
+let startAddExpense, navigate, wrapper;
 
 beforeEach(() => {
-  addExpense = jest.fn();
+  startAddExpense = jest.fn();
   navigate = jest.fn();
   wrapper = shallow(
-    <AddExpensePage addExpense={addExpense} navigate={navigate} />
+    <AddExpensePage startAddExpense={startAddExpense} navigate={navigate} />
   );
 })
 
@@ -20,5 +20,5 @@ test("should render addexpensepage correctly", () => {
 test("should handle onSubmit", () => {
   wrapper.find("ExpenseForm").prop("onSubmit")(expenses[1]);
   expect(navigate).toHaveBeenLastCalledWith("/");
-  expect(addExpense).toHaveBeenLastCalledWith(expenses[1]);
+  expect(startAddExpense).toHaveBeenLastCalledWith(expenses[1]);
 });

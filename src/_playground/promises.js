@@ -24,3 +24,16 @@ promise.then(
 );
 
 console.log("After");
+
+// Promise Chaining
+promise
+  .then((data) => {
+    setTimeout(() => console.log(data), 2500);
+    return "Some Value";
+  })
+  .then(() => {
+    setTimeout((someValue) => console.log("Does this run?", someValue), 1000);
+  })
+  .catch((error) => {
+    console.log(error);
+  });

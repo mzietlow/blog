@@ -1,4 +1,5 @@
-import database, { firebaseHooks as fbHooks } from "../firebase/firebase";
+import { push, ref } from "firebase/database";
+import database from "../firebase/firebase";
 // Expenses Reducer Methods
 export const addExpense = (expense) => ({ type: "ADD_EXPENSE", expense });
 
@@ -11,9 +12,10 @@ export const startAddExpense = (expenseData = {}) => {
       createdAt = 0,
     } = expenseData;
     const expense = { description, note, amount, createdAt };
-    fbHooks
-      .push(fbHooks.ref(database, "expenses"), expense)
-      .then((ref) => dispatch(addExpense({ id: ref.key, ...expense })));
+
+    return push(ref(database, "expenses"), expense).then((ref) =>
+      dispatch(addExpense({ id: ref.key, ...expense }))
+    );
   };
 };
 
