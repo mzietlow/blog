@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ExpenseForm from "./ExpenseForm";
 import { useSelector, connect } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { editExpense, removeExpense } from "../actions/expenses";
+import { editExpense, startRemoveExpense } from "../actions/expenses";
 
 export class EditExpensePage extends React.Component {
   onSubmit = (expenseUpdate) => {
@@ -11,7 +11,7 @@ export class EditExpensePage extends React.Component {
     this.props.navigate("/");
   };
   onRemoveClick = () => {
-    this.props.removeExpense({ id: this.props.expense.id });
+    this.props.startRemoveExpense({ id: this.props.expense.id });
     this.props.navigate("/");
   };
 
@@ -46,15 +46,15 @@ EditExpensePage.propTypes = {
   expense: PropTypes.object.isRequired,
   navigate: PropTypes.func,
   editExpense: PropTypes.func,
-  removeExpense: PropTypes.func,
+  startRemoveExpense: PropTypes.func,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   editExpense: (expenseId, expenseUpdate) => {
     dispatch(editExpense(expenseId, expenseUpdate));
   },
-  removeExpense: ({ id }) => {
-    dispatch(removeExpense({ id }));
+  startRemoveExpense: ({ id }) => {
+    dispatch(startRemoveExpense({ id }));
   },
 });
 
