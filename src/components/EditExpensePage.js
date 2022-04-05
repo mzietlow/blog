@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import ExpenseForm from "./ExpenseForm";
 import { useSelector, connect } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { editExpense, startRemoveExpense } from "../actions/expenses";
+import { startEditExpense, startRemoveExpense } from "../actions/expenses";
 
 export class EditExpensePage extends React.Component {
   onSubmit = (expenseUpdate) => {
-    this.props.editExpense(this.props.expense.id, expenseUpdate);
+    this.props.startEditExpense(this.props.expense.id, expenseUpdate);
     this.props.navigate("/");
   };
   onRemoveClick = () => {
@@ -39,19 +39,19 @@ const EditExpensePageWrapper = (props) => {
       navigate={navigate}
       expense={expense}
     />
-  ); // Why doesnt this work?
+  );
 };
 
 EditExpensePage.propTypes = {
   expense: PropTypes.object.isRequired,
   navigate: PropTypes.func,
-  editExpense: PropTypes.func,
+  startEditExpense: PropTypes.func,
   startRemoveExpense: PropTypes.func,
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  editExpense: (expenseId, expenseUpdate) => {
-    dispatch(editExpense(expenseId, expenseUpdate));
+  startEditExpense: (expenseId, expenseUpdate) => {
+    dispatch(startEditExpense(expenseId, expenseUpdate));
   },
   startRemoveExpense: ({ id }) => {
     dispatch(startRemoveExpense({ id }));

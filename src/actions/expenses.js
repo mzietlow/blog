@@ -1,4 +1,4 @@
-import { get, push, ref, remove } from "firebase/database";
+import { get, push, ref, remove, update } from "firebase/database";
 import database from "../firebase/firebase";
 // Expenses Reducer Methods
 export const addExpense = (expense) => ({ type: "ADD_EXPENSE", expense });
@@ -37,6 +37,14 @@ export const editExpense = (id, expenseUpdate = {}) => ({
   id,
   expenseUpdate,
 });
+
+export const startEditExpense = (id, expenseUpdate = {}) => {
+  return (dispatch) => {
+    return update(ref(database, `expenses/${id}`), expenseUpdate).then(() => {
+      dispatch(editExpense(id, expenseUpdate));
+    });
+  };
+};
 
 export const setExpenses = (expenses) => ({
   type: "SET_EXPENSES",

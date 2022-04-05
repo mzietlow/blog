@@ -9,6 +9,7 @@ import {
   startRemoveExpense,
   setExpenses,
   startSetExpenses,
+  startEditExpense,
 } from "../../actions/expenses";
 import createMockStore from "redux-mock-store";
 import { get, ref, set } from "firebase/database";
@@ -136,6 +137,32 @@ test("should remove expense on startRemoveExpense", (done) => {
 
     get(ref(database, `expenses/${id}`)).then((snapshot) =>
       expect(snapshot.val()).toBeNull()
+    );
+
+    done();
+  });
+});
+
+test("should edit expense on startEditExpense", (done) => {
+  const id = expenses[0].id;
+  const expenseUpdate = {
+    description: "Updatetest",
+    amount: 3141592,
+    createdAt: 25,
+    note: "hello world",
+  };
+  const store = createMockStore([thunk])(expenses[0]);
+  store.dispatch(startEditExpense(id, expenseUpdate)).then(() => {
+    const actions = store.getActions();
+    const id = expenses[0].id;
+    expect(actions[0]).toEqual({
+      type: "EDIT_EXPENSE",
+      id,
+      expenseUpdate,
+    });
+
+    get(ref(database, `expenses/${id}`)).then((snapshot) =>
+      expect(snapshot.val()).toEqual(expenseUpdate)
     );
 
     done();
